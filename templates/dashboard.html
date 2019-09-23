@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard</title>
+</head>
+<body>
+{% if session['usersession'] %}
+<a href="adduser">Add book</a>
+    <table>
+        {% for user in alldata %}
+        <tr>
+            <td>
+                {{ user.name }}
+            </td>
+            <td>
+                 <a href="#">Update</a>
+            </td>
+            <td>
+                <a href="#">Delete</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+{% else %}
+    <table>
+        {% for user in alldata %}
+        <tr>
+            <td>
+                {{ user.name }}
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+{% endif %}
+<a href="logout">Logout</a>
+</body>
+</html>
